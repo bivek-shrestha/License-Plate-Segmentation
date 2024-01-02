@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nepali Number Plate Recognition</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin: 0;
+        }
+        form {
+            text-align: center;
+            margin: 2rem auto;
+        }
+        input[type="file"] {
+            padding: 0.5rem;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        .result {
+            text-align: center;
+            margin: 2rem auto;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nepali Number Plate Recognition</h1>
+    
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".jpg, .jpeg, .png">
+        <button type="submit">Upload</button>
+    </form>
+    
+    {% if uploaded %}
+        <div class="result">
+            <h2>Uploaded Image:</h2>
+            <img src="{{ uploaded_image }}" alt="Uploaded Image">
+            <h2>Prediction:</h2>
+            <p>{{ prediction }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
